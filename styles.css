@@ -204,7 +204,7 @@ p {
 }
 
 .hero-text {
-  margin-top: 1.4rem;
+  margin-top: 0.4rem;
   max-width: 58ch;
   font-size: 1.08rem;
 }
@@ -298,12 +298,16 @@ p {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 247, 240, 0.92)),
     var(--surface);
+  max-width: 21rem;
+  justify-self: center;
 }
 
 .portrait-frame {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  width: min(100%, 16rem);
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
 }
 
 .portrait-frame img {
