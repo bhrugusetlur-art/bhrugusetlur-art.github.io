@@ -354,6 +354,21 @@ p {
   margin-bottom: 2rem;
 }
 
+.subsection-heading {
+  max-width: 34rem;
+  margin-bottom: 1.15rem;
+}
+
+.subsection-heading h3,
+.project-summary h3 {
+  margin-bottom: 0.45rem;
+  font-size: 1.7rem;
+}
+
+.subsection-heading-spaced {
+  margin-top: 3rem;
+}
+
 .about-grid {
   grid-template-columns: 1.15fr 0.85fr;
 }
@@ -383,7 +398,8 @@ p {
 }
 
 .card-grid,
-.course-grid {
+.course-grid,
+.demo-grid {
   display: grid;
   gap: 1.25rem;
 }
@@ -392,10 +408,94 @@ p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.project-sections {
+  display: grid;
+  gap: 0;
+}
+
+.physical-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.card-grid-physical {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.demo-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .project-card {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.project-card-featured {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 245, 236, 0.88)),
+    var(--surface);
+}
+
+.project-card-hardware {
+  background:
+    linear-gradient(135deg, rgba(104, 138, 111, 0.08), rgba(255, 255, 255, 0.88)),
+    var(--surface);
+}
+
+.project-summary {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 240, 0.9), rgba(255, 255, 255, 0.72)),
+    var(--surface);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 6rem;
+}
+
+.project-summary p + p {
+  margin-top: 0.65rem;
+}
+
+.demo-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.demo-card video {
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+  background: #000;
+  margin-bottom: 1rem;
+}
+
+.demo-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 1rem;
+  background: #000;
+  margin-bottom: 1rem;
+}
+
+.demo-card img {
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+  background: #f1ede8;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
 }
 
 .tag {
@@ -469,7 +569,13 @@ p {
   .about-grid,
   .contact-banner,
   .card-grid,
-  .course-grid {
+  .course-grid,
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .physical-layout,
+  .card-grid-physical {
     grid-template-columns: 1fr;
   }
 
@@ -479,6 +585,10 @@ p {
 
   .hero-card {
     max-width: 34rem;
+  }
+
+  .project-summary {
+    position: static;
   }
 
   .contact-list {
