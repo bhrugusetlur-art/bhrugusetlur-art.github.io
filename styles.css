@@ -1,15 +1,15 @@
 :root {
-  --bg: #f6f1e8;
-  --bg-soft: rgba(255, 255, 255, 0.56);
-  --surface: rgba(255, 250, 244, 0.84);
-  --surface-strong: #fff9f1;
-  --text: #1f1b16;
-  --muted: #5f574e;
-  --line: rgba(64, 44, 20, 0.12);
-  --accent: #b44d1e;
-  --accent-strong: #7f2f0a;
-  --accent-fade: rgba(180, 77, 30, 0.12);
-  --shadow: 0 20px 60px rgba(89, 60, 30, 0.12);
+  --bg: #f6f2fb;
+  --bg-soft: rgba(255, 255, 255, 0.72);
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-strong: #ffffff;
+  --text: #241630;
+  --muted: #5f5471;
+  --line: rgba(87, 6, 140, 0.12);
+  --accent: #57068c;
+  --accent-strong: #3f0567;
+  --accent-fade: rgba(87, 6, 140, 0.1);
+  --shadow: 0 20px 60px rgba(63, 5, 103, 0.12);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 999px;
@@ -29,9 +29,9 @@ body {
   font-family: "Space Grotesk", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(255, 204, 143, 0.6), transparent 28%),
-    radial-gradient(circle at 85% 18%, rgba(199, 119, 73, 0.2), transparent 22%),
-    linear-gradient(180deg, #f8f1e5 0%, #f4ece1 48%, #efe4d8 100%);
+    radial-gradient(circle at top left, rgba(138, 92, 180, 0.22), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(87, 6, 140, 0.12), transparent 22%),
+    linear-gradient(180deg, #faf7fe 0%, #f4effc 48%, #ede6fa 100%);
 }
 
 img {
@@ -68,7 +68,7 @@ a {
   height: 18rem;
   top: 5rem;
   right: -4rem;
-  background: rgba(233, 142, 78, 0.18);
+  background: rgba(87, 6, 140, 0.16);
 }
 
 .page-shell::after {
@@ -76,7 +76,7 @@ a {
   height: 24rem;
   bottom: 8rem;
   left: -10rem;
-  background: rgba(104, 138, 111, 0.12);
+  background: rgba(167, 139, 250, 0.16);
 }
 
 .site-header {
@@ -84,8 +84,8 @@ a {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(18px);
-  background: rgba(246, 241, 232, 0.72);
-  border-bottom: 1px solid rgba(64, 44, 20, 0.08);
+  background: rgba(246, 242, 251, 0.78);
+  border-bottom: 1px solid rgba(87, 6, 140, 0.08);
 }
 
 .nav-wrap {
@@ -296,7 +296,7 @@ p {
   padding: 1.2rem;
   border-radius: calc(var(--radius-lg) + 0.5rem);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 247, 240, 0.92)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 239, 252, 0.95)),
     var(--surface);
   max-width: 21rem;
   justify-self: center;
@@ -344,8 +344,8 @@ p {
   position: absolute;
   inset: 1rem 0;
   background: rgba(255, 255, 255, 0.26);
-  border-top: 1px solid rgba(64, 44, 20, 0.06);
-  border-bottom: 1px solid rgba(64, 44, 20, 0.06);
+  border-top: 1px solid rgba(87, 6, 140, 0.06);
+  border-bottom: 1px solid rgba(87, 6, 140, 0.06);
   z-index: -1;
 }
 
@@ -381,7 +381,7 @@ p {
 
 .focus-panel {
   background:
-    linear-gradient(135deg, rgba(180, 77, 30, 0.08), rgba(104, 138, 111, 0.08)),
+    linear-gradient(135deg, rgba(87, 6, 140, 0.08), rgba(167, 139, 250, 0.08)),
     var(--surface);
 }
 
@@ -429,13 +429,13 @@ p {
 
 .project-card-featured {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 245, 236, 0.88)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 234, 252, 0.92)),
     var(--surface);
 }
 
 .project-card-hardware {
   background:
-    linear-gradient(135deg, rgba(104, 138, 111, 0.08), rgba(255, 255, 255, 0.88)),
+    linear-gradient(135deg, rgba(87, 6, 140, 0.08), rgba(255, 255, 255, 0.9)),
     var(--surface);
 }
 
@@ -472,7 +472,7 @@ p {
 }
 
 .demo-card img.demo-media {
-  background: #f1ede8;
+  background: #f3eefb;
   object-fit: contain;
   aspect-ratio: 16 / 10;
 }
@@ -507,7 +507,7 @@ p {
   flex-direction: column;
   justify-content: flex-end;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.7)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(245, 241, 252, 0.92)),
     var(--surface-strong);
   transition:
     transform 180ms ease,
@@ -534,7 +534,7 @@ p {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius-lg) + 0.5rem);
   background:
-    linear-gradient(135deg, rgba(180, 77, 30, 0.08), rgba(255, 255, 255, 0.65)),
+    linear-gradient(135deg, rgba(87, 6, 140, 0.08), rgba(255, 255, 255, 0.72)),
     var(--surface);
   box-shadow: var(--shadow);
 }
@@ -554,7 +554,7 @@ p {
 .footer-wrap {
   grid-template-columns: 1fr auto;
   align-items: center;
-  border-top: 1px solid rgba(64, 44, 20, 0.1);
+  border-top: 1px solid rgba(87, 6, 140, 0.1);
   padding-top: 1.4rem;
 }
 
