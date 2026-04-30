@@ -1,7 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="B emblem">
-  <rect width="64" height="64" rx="16" fill="#57068c" />
-  <path
-    d="M19 14h15c8 0 13 4 13 10 0 4-2 7-6 8 5 1 8 5 8 10 0 8-6 12-15 12H19V14zm12 16c4 0 7-2 7-5 0-4-3-5-7-5h-3v10h3zm2 18c5 0 8-2 8-6s-3-6-8-6h-5v12h5z"
-    fill="#ffffff"
-  />
+  <rect width="64" height="64" rx="16" fill="#1a1a1a" />
+  <rect x="3" y="3" width="58" height="58" rx="13" fill="none" stroke="#7f8794" stroke-width="2" />
+  <text
+    x="32"
+    y="43"
+    text-anchor="middle"
+    font-size="34"
+    font-family="Fraunces, Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    fill="#d8deea"
+  >
+    B
+  </text>
 </svg>

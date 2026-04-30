@@ -22,16 +22,20 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   color: var(--text);
   background:
     radial-gradient(circle at top left, rgba(169, 177, 195, 0.12), transparent 28%),
     radial-gradient(circle at 85% 18%, rgba(216, 222, 234, 0.08), transparent 24%),
     linear-gradient(180deg, #fbfbfa 0%, #f5f5f4 48%, #eeeeec 100%);
+  padding-top: 4.75rem;
 }
 
 img {
@@ -55,8 +59,10 @@ a {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
   backdrop-filter: blur(18px);
   background: rgba(26, 26, 26, 0.94);
@@ -123,7 +129,7 @@ a {
 }
 
 .hero {
-  padding: 3.5rem 0 1.5rem;
+  padding: 2.25rem 0 4rem;
 }
 
 .hero-grid,
@@ -135,9 +141,9 @@ a {
 }
 
 .hero-grid {
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 .eyebrow {
@@ -158,7 +164,7 @@ h3,
 
 h1 {
   margin: 0;
-  font-size: clamp(3rem, 7vw, 5.4rem);
+  font-size: clamp(3rem, 6vw, 4.9rem);
   line-height: 0.92;
   letter-spacing: -0.04em;
   max-width: 9ch;
@@ -182,16 +188,16 @@ p {
 }
 
 .hero-text {
-  margin-top: 0.9rem;
-  max-width: 36rem;
-  font-size: 1.08rem;
+  margin-top: 1rem;
+  max-width: 38rem;
+  font-size: 1.06rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
-  margin-top: 1.6rem;
+  margin-top: 1.5rem;
 }
 
 .button {
@@ -241,7 +247,8 @@ p {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.8rem;
+  max-width: 46rem;
 }
 
 .stat-row li,
@@ -256,34 +263,34 @@ p {
 
 .stat-row li {
   border-radius: var(--radius-md);
-  padding: 1rem;
+  padding: 0.85rem 1rem;
 }
 
 .stat-row strong {
   display: block;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: var(--text);
 }
 
 .stat-row span {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .hero-card {
-  padding: 1.35rem;
+  padding: 1rem;
   border-radius: calc(var(--radius-lg) + 0.5rem);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 247, 250, 0.98)),
     var(--surface);
-  max-width: 24rem;
+  max-width: 22rem;
   justify-self: center;
 }
 
 .portrait-frame {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  width: min(100%, 18rem);
+  width: min(100%, 17rem);
   margin: 0 auto;
   aspect-ratio: 4 / 5;
 }
@@ -292,6 +299,9 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 250%;
+  transform: scale(2.0);
+  transform-origin: center top;
 }
 
 .hero-note {
@@ -311,6 +321,10 @@ p {
 
 .section {
   padding: 2rem 0 5rem;
+}
+
+#about {
+  padding-top: 3.5rem;
 }
 
 .section-tinted {
@@ -346,19 +360,11 @@ p {
   margin-top: 3rem;
 }
 
-.about-grid {
-  grid-template-columns: 1fr;
-}
-
 .panel,
 .project-card,
 .course-chip {
   border-radius: var(--radius-lg);
   padding: 1.5rem;
-}
-
-#about .panel {
-  max-width: 52rem;
 }
 
 .card-grid,
@@ -396,6 +402,11 @@ p {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 246, 249, 0.94)),
     var(--surface);
+}
+
+.project-card-spotlight {
+  border-color: rgba(96, 102, 112, 0.32);
+  box-shadow: 0 22px 64px rgba(15, 23, 35, 0.12);
 }
 
 .project-card-hardware {
@@ -462,6 +473,24 @@ p {
   font-weight: 700;
 }
 
+.text-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(96, 102, 112, 0.24);
+  border-radius: var(--radius-sm);
+  background: #1f232a;
+  color: #f4f1eb;
+}
+
+.text-link-button:hover,
+.text-link-button:focus-visible {
+  background: #15181d;
+  color: #ffffff;
+}
+
 .course-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -525,7 +554,6 @@ p {
 
 @media (max-width: 900px) {
   .hero-grid,
-  .about-grid,
   .contact-banner,
   .card-grid,
   .course-grid,
@@ -538,11 +566,11 @@ p {
   }
 
   .hero {
-    padding-top: 2.5rem;
+    padding-top: 2rem;
   }
 
   .hero-card {
-    max-width: 34rem;
+    max-width: 20rem;
   }
 
   .contact-list {
