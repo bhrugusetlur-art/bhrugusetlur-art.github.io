@@ -146,6 +146,9 @@ a {
   gap: 2.5rem;
 }
 
+.hero-copy { order: 1; }
+.hero-card { order: 2; }
+
 .eyebrow {
   margin: 0 0 0.9rem;
   text-transform: uppercase;
@@ -554,23 +557,20 @@ p {
 
 @media (max-width: 900px) {
   .hero-grid,
-  .contact-banner,
-  .card-grid,
-  .course-grid,
-  .demo-grid {
+  .contact-banner {
     grid-template-columns: 1fr;
   }
 
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .card-grid-physical {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero {
     padding-top: 2rem;
-  }
-
-  .hero-card {
-    max-width: 20rem;
   }
 
   .contact-list {
@@ -603,12 +603,68 @@ p {
     display: flex;
   }
 
-  .stat-row {
+  .card-grid {
     grid-template-columns: 1fr;
   }
 
+  .card-grid-physical {
+    grid-template-columns: 1fr;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-grid {
+    display: flow-root;
+  }
+
+  .hero-card {
+    float: right;
+    width: 9rem;
+    max-width: 9rem;
+    margin: 0 0 0.75rem 1rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    max-width: none;
+  }
+
+  .hero-actions {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .button {
+    min-height: 2.6rem;
+    padding: 0 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .course-chip {
+    min-height: 7.5rem;
+    justify-content: flex-start;
+  }
+
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-card-wide {
+    grid-column: span 1;
+  }
+
+  .demo-card iframe {
+    min-height: unset;
+  }
+
+  .hero-card {
+    max-width: 13rem;
+  }
+
   .section {
-    padding-bottom: 4rem;
+    padding: 1rem 0 2.5rem;
   }
 
   .contact-banner,
