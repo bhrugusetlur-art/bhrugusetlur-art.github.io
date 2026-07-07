@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bhrugu Setlur's personal portfolio featuring software projects, coursework, and contact information."
+      content="Bhrugu Setlur's portfolio — computer architecture, full-stack, and AI projects from an ECE student at NYU Tandon."
     />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Bhrugu Setlur's Portfolio" />
@@ -14,6 +14,8 @@
       content="Software, systems, and hardware projects by Bhrugu Setlur."
     />
     <meta property="og:url" content="https://bhrugusetlur-art.github.io/" />
+    <meta property="og:image" content="https://bhrugusetlur-art.github.io/portrait.jpg" />
+    <meta name="theme-color" content="#10151c" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Bhrugu Setlur's Portfolio" />
     <meta
@@ -25,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -48,6 +50,7 @@
           </button>
           <nav class="site-nav" id="site-nav">
             <a href="#about">About</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#coursework">Coursework</a>
             <a href="#contact">Contact</a>
@@ -60,16 +63,23 @@
           <div class="container hero-grid">
             <div class="hero-card">
               <div class="portrait-frame">
-                <img src="./IMG_1861.JPG" alt="Portrait of Bhrugu Setlur" />
+                <img src="./portrait.jpg" alt="Portrait of Bhrugu Setlur" />
+              </div>
+              <div class="silkscreen mono-label" aria-hidden="true">
+                <span class="silkscreen-id"><span class="pin-dot"></span>BSETLUR-28 · REV A</span>
+                <span class="led-strip">
+                  <span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span>
+                </span>
               </div>
             </div>
-
             <div class="hero-copy">
+              <p class="kicker">Electrical &amp; Computer Engineering — NYU Tandon</p>
               <h1>Bhrugu Setlur</h1>
               <p class="hero-text">
-                I am an Electrical and Computer Engineering student at NYU with interests across
-                software, systems, and hardware. I like building projects that are practical,
-                technically challenging, and easy to demonstrate.
+                I am an Electrical and Computer Engineering student at NYU Tandon focused on
+                computer architecture and chip design, with experience shipping full-stack
+                products and AI agent infrastructure. Currently a software engineering intern at
+                Tokonoma.ai.
               </p>
               <div class="hero-actions">
                 <a class="button button-primary" href="#projects">View Projects</a>
@@ -83,200 +93,170 @@
                 </a>
                 <a class="button button-secondary" href="mailto:bhrugu.setlur@gmail.com">Email Me</a>
               </div>
-              <ul class="stat-row" aria-label="Highlights">
-                <li>
-                  <strong>9</strong>
-                  <span>Projects</span>
-                </li>
-                <li>
-                  <strong>10</strong>
-                  <span>Courses</span>
-                </li>
-                <li>
-                  <strong>NYC</strong>
-                  <span>Location</span>
-                </li>
-              </ul>
+              <p class="hero-meta" aria-label="Highlights">
+                <span>3.74 GPA · Dean’s List</span>
+                <span>10 Projects</span>
+                <span>New York, NY</span>
+              </p>
             </div>
           </div>
         </section>
 
-        <section class="section section-tinted" id="projects">
+        <section class="section" id="experience">
           <div class="container">
-            <div class="section-heading">
+            <div class="section-head reveal">
+              <span class="section-num">0x01</span>
+              <h2>Experience</h2>
+              <span class="head-wave" aria-hidden="true"></span>
+            </div>
+            <ol class="xp-list">
+              <li class="xp-row reveal">
+                <p class="xp-when">Jun 2026 — Present</p>
+                <div class="xp-body">
+                  <h3>Tokonoma.ai</h3>
+                  <p class="xp-role">Software Engineering Intern · San Francisco, CA</p>
+                  <p>
+                    Building an AI SRE automation platform — an MCP server that gives LLM agents
+                    access to production logs, distributed traces, and Kubernetes events. Designed
+                    the knowledge base’s vector-similarity deduplication and cut agent
+                    incident-investigation time 53%.
+                  </p>
+                </div>
+              </li>
+              <li class="xp-row reveal">
+                <p class="xp-when">Jan 2026 — May 2026</p>
+                <div class="xp-body">
+                  <h3>Growcery</h3>
+                  <p class="xp-role">Software Engineering Intern · New York, NY</p>
+                  <p>
+                    Built and launched a full-stack marketplace with buyer–seller accounts, in-app
+                    messaging, Stripe payments with Apple Pay, and radius-based geolocation
+                    discovery.
+                  </p>
+                </div>
+              </li>
+              <li class="xp-row reveal">
+                <p class="xp-when">Sep 2025 — Present</p>
+                <div class="xp-body">
+                  <h3>VIP: High Performance Computing at NYU</h3>
+                  <p class="xp-role">Virtual Environment Penetration Tester · New York, NY</p>
+                  <p>
+                    Penetration tester for Google Cloud research environments — executed an
+                    8-phase attack kill chain spanning SQL injection, privilege escalation, and
+                    credential reuse, then presented remediation and hardening plans.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section" id="projects">
+          <div class="container">
+            <div class="section-head reveal">
+              <span class="section-num">0x02</span>
               <h2>Projects</h2>
+              <span class="head-wave" aria-hidden="true"></span>
             </div>
-            <div class="project-sections">
-              <div class="subsection-heading">
-                <p class="eyebrow">Software</p>
+
+            <article class="datasheet reveal">
+              <div class="datasheet-head">
+                <span class="mono-label">Project datasheet — digital design</span>
+                <span class="mono-label">Verilog · FPGA</span>
               </div>
-              <div class="card-grid">
-                <article class="project-card project-card-featured project-card-spotlight">
-                  <span class="tag">Startup Idea</span>
-                  <h3>growcery</h3>
+              <div class="datasheet-grid">
+                <div class="datasheet-copy">
+                  <h3>8-bit CPU with Cache Hierarchy</h3>
                   <p>
-                    A live marketplace-style product focused on grocery discovery, pickup, and
-                    real-world buying flows, built around practical product and engineering
-                    decisions.
-                  </p>
-                  <a
-                    class="text-link text-link-button"
-                    href="https://growcery.us"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit growcery
-                  </a>
-                </article>
-
-                <article class="project-card project-card-featured">
-                  <span class="tag">Product Build</span>
-                  <h3>LineLab</h3>
-                  <p>
-                    An NYC transit planning sandbox for drafting proposed subway corridors,
-                    simulating demand impact, and comparing projected travel time and cost against
-                    current service.
+                    A complete 8-bit Harvard-architecture CPU designed in Verilog — 12-instruction
+                    ISA, ALU, register file, control unit, and a write-back L1 + 4-way
+                    set-associative L2 cache hierarchy — verified across 75 testbench cases,
+                    assembled with a custom C++ assembler, and running on a Basys 3 (Artix-7)
+                    FPGA. Virtual memory and physical tapeout are next.
                   </p>
                   <a
                     class="text-link"
-                    href="https://github.com/Tandonites/LineLab"
+                    href="https://github.com/bhrugusetlur-art/cpu-design"
                     target="_blank"
                     rel="noreferrer"
                   >
                     View repository
                   </a>
-                </article>
-
-                <article class="project-card project-card-featured">
-                  <span class="tag">Web App</span>
-                  <h3>Grouply</h3>
-                  <p>
-                    A Google Calendar web app that lets users join groups, compare availability
-                    across members, and use an AI assistant to parse calendars and suggest open
-                    meeting times.
-                  </p>
-                  <a
-                    class="text-link"
-                    href="https://github.com/bhrugusetlur-art/project"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View repository
-                  </a>
-                </article>
-
-                <article class="project-card">
-                  <span class="tag">C++</span>
-                  <h3>Object Oriented Programming Coursework</h3>
-                  <p>
-                    Coursework exploring OOP principles, class design, abstraction, and more
-                    advanced C++ concepts.
-                  </p>
-                  <a
-                    class="text-link"
-                    href="https://github.com/bhrugusetlur-art/object_oriented_programming_coursework"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View repository
-                  </a>
-                </article>
-
-                <article class="project-card">
-                  <span class="tag">Python</span>
-                  <h3>Data Structures and Algorithms</h3>
-                  <p>
-                    Implementations of key data structures and algorithms with attention to logic,
-                    performance, and problem-solving technique.
-                  </p>
-                  <a
-                    class="text-link"
-                    href="https://github.com/bhrugusetlur-art/Data-Structures-and-Algorithms"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View repository
-                  </a>
-                </article>
-
-                <article class="project-card">
-                  <span class="tag">Python</span>
-                  <h3>Introduction to Python</h3>
-                  <p>
-                    Foundational programming work covering syntax, control flow, and practical Python
-                    problem solving.
-                  </p>
-                  <a
-                    class="text-link"
-                    href="https://github.com/bhrugusetlur-art/Intro-to-Python"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View repository
-                  </a>
-                </article>
-
-                <article class="project-card">
-                  <span class="tag">Computer Architecture</span>
-                  <h3>Computer Architecture Class Projects</h3>
-                  <p>
-                    Class work exploring hardware-software interaction, system behavior, and the core
-                    ideas behind computer architecture.
-                  </p>
-                  <a
-                    class="text-link"
-                    href="https://github.com/bhrugusetlur-art/computerArchitecture"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View repository
-                  </a>
-                </article>
+                </div>
+                <dl class="spec-table">
+                  <div>
+                    <dt>Architecture</dt>
+                    <dd>8-bit Harvard</dd>
+                  </div>
+                  <div>
+                    <dt>ISA</dt>
+                    <dd>12 instructions, custom</dd>
+                  </div>
+                  <div>
+                    <dt>Caches</dt>
+                    <dd>Write-back L1 + 4-way set-associative L2 (LRU)</dd>
+                  </div>
+                  <div>
+                    <dt>Verification</dt>
+                    <dd>11 modules · 75 testbench cases passing</dd>
+                  </div>
+                  <div>
+                    <dt>Toolchain</dt>
+                    <dd>Custom C++ assembler · Icarus Verilog</dd>
+                  </div>
+                  <div>
+                    <dt>Target</dt>
+                    <dd>Basys 3 — Xilinx Artix-7</dd>
+                  </div>
+                  <div>
+                    <dt>Next</dt>
+                    <dd>Virtual memory (TLB/MMU), physical tapeout</dd>
+                  </div>
+                </dl>
               </div>
+            </article>
 
-              <div class="subsection-heading subsection-heading-spaced">
-                <p class="eyebrow">Physical Projects</p>
+            <p class="mono-label eyebrow-sub">Software</p>
+
+            <article class="work-row reveal">
+              <div class="work-copy">
+                <span class="tag">Startup</span>
+                <h3>growcery</h3>
+                <p>
+                  A live grocery marketplace with buyer–seller accounts, in-app messaging,
+                  Stripe payments with Apple Pay, and radius-based discovery of nearby sellers —
+                  built with Next.js and Supabase and deployed in production.
+                </p>
+                <a
+                  class="text-link-button"
+                  href="https://growcery.us"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Visit growcery
+                </a>
               </div>
-              <div class="card-grid card-grid-physical">
-                <article class="project-card project-card-hardware">
-                  <span class="tag">Hardware Project</span>
-                  <h3>Automatic Card Shuffler &amp; Dealer</h3>
-                  <p>
-                    A hardware build that automatically shuffles and deals cards using Arduino,
-                    an LCD, servo motors, stepper motors, a photoresistor, laser-cut wood panels,
-                    and 3D-printed components.
-                  </p>
-                  <a class="text-link" href="#hardware-demo">View demo</a>
-                </article>
+            </article>
 
-                <article class="project-card project-card-hardware">
-                  <span class="tag">Hardware Project</span>
-                  <h3>Fencing Body Cord Repair Machine</h3>
-                  <p>
-                    A repair tool that lets users plug in different leads of a fencing body cord and
-                    uses an LED system to show which line is broken, saving time during the repair
-                    process.
-                  </p>
-                  <a
-                    class="text-link"
-                    href="#fencing-demo"
-                  >
-                    View demo
-                  </a>
-                </article>
+            <article class="work-row work-row-media reveal">
+              <div class="work-copy">
+                <span class="tag">Product Build</span>
+                <h3>LineLab</h3>
+                <p>
+                  An NYC transit planning sandbox for drafting proposed subway corridors and
+                  simulating ridership, cost, and travel time — powered by XGBoost models
+                  trained on four years of MTA ridership, Census, and OpenStreetMap data.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://github.com/Tandonites/LineLab"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View repository
+                </a>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="demos">
-          <div class="container">
-            <div class="section-heading">
-              <p class="eyebrow">Demos</p>
-              <h2>Demos</h2>
-            </div>
-            <div class="demo-grid">
-              <article class="demo-card demo-card-wide">
+              <figure class="work-media">
                 <iframe
                   src="https://www.youtube.com/embed/AENcuhai5Z8"
                   title="LineLab demo"
@@ -284,40 +264,113 @@
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
-                <h3>LineLab Demo</h3>
-                <p>A walkthrough of the transit planning interface, corridor drafting, and system visualization.</p>
-              </article>
-              <article class="demo-card">
-                <video class="demo-media" controls playsinline preload="metadata" muted>
-                  <source src="./videos/grouply-login-dashboard.mp4" type="video/mp4" />
-                </video>
-                <h3>Login Dashboard</h3>
-                <p>A quick look at the Grouply sign-in and dashboard experience.</p>
-              </article>
-              <article class="demo-card">
-                <video class="demo-media" controls playsinline preload="metadata" muted>
-                  <source src="./videos/grouply-groups-gemini.mp4" type="video/mp4" />
-                </video>
-                <h3>Groups + AI Assistant</h3>
-                <p>The group availability workflow with the Gemini-powered scheduling assistant.</p>
-              </article>
-              <article class="demo-card" id="hardware-demo">
-                <img class="demo-media" src="./images/card-shuffler.jpeg" alt="Automatic card shuffler and dealer hardware build" />
+                <figcaption>
+                  A walkthrough of the transit planning interface, corridor drafting, and system
+                  visualization.
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="work-row work-row-media reveal">
+              <div class="work-copy">
+                <span class="tag">Web App</span>
+                <h3>Grouply</h3>
+                <p>
+                  A Google Calendar web app that lets users join groups, compare availability
+                  across members, and use a Gemini-powered assistant to parse calendars and
+                  suggest open meeting times.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://github.com/bhrugusetlur-art/grouply"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View repository
+                </a>
+              </div>
+              <div class="work-media work-media-pair">
+                <figure>
+                  <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    muted
+                    poster="./images/poster-grouply-login-dashboard.jpg"
+                  >
+                    <source src="./videos/grouply-login-dashboard.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>
+                    Login dashboard — a quick look at the sign-in and dashboard experience.
+                  </figcaption>
+                </figure>
+                <figure>
+                  <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    muted
+                    poster="./images/poster-grouply-groups-gemini.jpg"
+                  >
+                    <source src="./videos/grouply-groups-gemini.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>
+                    Groups + AI assistant — the availability workflow with the Gemini-powered
+                    scheduling assistant.
+                  </figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <p class="mono-label eyebrow-sub">Hardware</p>
+
+            <article class="work-row work-row-media reveal">
+              <div class="work-copy">
+                <span class="tag">Physical Build</span>
                 <h3>Automatic Card Shuffler &amp; Dealer</h3>
                 <p>
-                  The physical build, combining embedded controls, custom fabrication, and motion
-                  systems for shuffling and dealing cards.
+                  A hardware build that automatically shuffles and deals cards using Arduino,
+                  an LCD, servo motors, stepper motors, a photoresistor, laser-cut wood panels,
+                  and 3D-printed components.
                 </p>
-              </article>
-              <article class="demo-card">
-                <video class="demo-media" controls playsinline preload="metadata" muted>
-                  <source src="./videos/card-shuffler-demo.mp4" type="video/mp4" />
-                  <source src="./videos/card-shuffler-demo.mov" type="video/quicktime" />
-                </video>
-                <h3>Hardware Demo Video</h3>
-                <p>A quick video of the shuffler and dealer in action.</p>
-              </article>
-              <article class="demo-card demo-card-wide" id="fencing-demo">
+              </div>
+              <div class="work-media work-media-pair">
+                <figure>
+                  <img
+                    src="./images/card-shuffler.jpeg"
+                    alt="Automatic card shuffler and dealer hardware build"
+                  />
+                  <figcaption>
+                    The physical build — embedded controls, custom fabrication, and motion
+                    systems for shuffling and dealing cards.
+                  </figcaption>
+                </figure>
+                <figure>
+                  <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    muted
+                    poster="./images/poster-card-shuffler-demo.jpg"
+                  >
+                    <source src="./videos/card-shuffler-demo.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>The shuffler and dealer in action.</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="work-row work-row-media reveal">
+              <div class="work-copy">
+                <span class="tag">Physical Build</span>
+                <h3>Fencing Body Cord Repair Machine</h3>
+                <p>
+                  A repair tool that lets users plug in different leads of a fencing body cord and
+                  uses an LED system to show which line is broken, saving time during the repair
+                  process.
+                </p>
+              </div>
+              <figure class="work-media">
                 <iframe
                   src="https://www.youtube.com/embed/2EtIYTMh7mc?start=2"
                   title="Fencing Body Cord Repair Machine demo"
@@ -325,72 +378,132 @@
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
-                <h3>Fencing Body Cord Repair Machine</h3>
-                <p>
-                  A video demo of the LED-guided repair workflow for diagnosing broken lines in a
-                  fencing body cord.
-                </p>
-              </article>
-            </div>
+                <figcaption>
+                  The LED-guided repair workflow for diagnosing broken lines in a fencing body
+                  cord.
+                </figcaption>
+              </figure>
+            </article>
+
+            <p class="mono-label eyebrow-sub">More on GitHub</p>
+            <ul class="repo-list">
+              <li>
+                <div>
+                  <h3>Computer Architecture Class Projects</h3>
+                  <p>
+                    Class work exploring hardware-software interaction, system behavior, and the
+                    core ideas behind computer architecture.
+                  </p>
+                </div>
+                <a
+                  class="text-link"
+                  href="https://github.com/bhrugusetlur-art/computerArchitecture"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View repository
+                </a>
+              </li>
+              <li>
+                <div>
+                  <h3>Course Repositories</h3>
+                  <p>
+                    Foundations from NYU coursework — object-oriented design in C++, classic data
+                    structures and algorithms, and core Python problem solving.
+                  </p>
+                </div>
+                <div class="link-row">
+                  <a
+                    class="text-link"
+                    href="https://github.com/bhrugusetlur-art/object_oriented_programming_coursework"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    OOP in C++
+                  </a>
+                  <a
+                    class="text-link"
+                    href="https://github.com/bhrugusetlur-art/Data-Structures-and-Algorithms"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Data Structures &amp; Algorithms
+                  </a>
+                  <a
+                    class="text-link"
+                    href="https://github.com/bhrugusetlur-art/Intro-to-Python"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Intro to Python
+                  </a>
+                </div>
+              </li>
+            </ul>
           </div>
         </section>
 
         <section class="section" id="coursework">
           <div class="container">
-            <div class="section-heading">
-              <p class="eyebrow">Coursework</p>
+            <div class="section-head reveal">
+              <span class="section-num">0x03</span>
               <h2>Coursework</h2>
+              <span class="head-wave" aria-hidden="true"></span>
             </div>
-            <div class="course-grid">
+            <div class="course-grid reveal">
               <a class="course-chip" href="https://bulletins.nyu.edu/undergraduate/engineering/courses/cs-uy/" target="_blank" rel="noreferrer">
-                <h3>CS-UY 1114</h3>
-                <p>Intro To Programming &amp; Problem Solving</p>
+                <strong>CS-UY 1114</strong>
+                <span>Intro To Programming &amp; Problem Solving</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/undergraduate/engineering/courses/cs-uy/" target="_blank" rel="noreferrer">
-                <h3>CS-UY 1134</h3>
-                <p>Data Structures and Algorithms</p>
+                <strong>CS-UY 1134</strong>
+                <span>Data Structures and Algorithms</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/undergraduate/engineering/courses/cs-uy/" target="_blank" rel="noreferrer">
-                <h3>CS-UY 2124</h3>
-                <p>Object Oriented Programming</p>
+                <strong>CS-UY 2124</strong>
+                <span>Object Oriented Programming</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/undergraduate/engineering/courses/cs-uy/" target="_blank" rel="noreferrer">
-                <h3>CS-UY 2204</h3>
-                <p>Digital Logic and State Machine Design</p>
+                <strong>CS-UY 2204</strong>
+                <span>Digital Logic and State Machine Design</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/undergraduate/engineering/courses/cs-uy/" target="_blank" rel="noreferrer">
-                <h3>CS-UY 2214</h3>
-                <p>Computer Architecture and Organization</p>
+                <strong>CS-UY 2214</strong>
+                <span>Computer Architecture and Organization</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/undergraduate/engineering/courses/ece-uy/" target="_blank" rel="noreferrer">
-                <h3>ECE-UY 2004</h3>
-                <p>Fund. Of Electric Circuits</p>
+                <strong>ECE-UY 2004</strong>
+                <span>Fund. Of Electric Circuits</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/courses/ma_uy/" target="_blank" rel="noreferrer">
-                <h3>MA-UY 2034</h3>
-                <p>Linear Algebra and Differential Equations</p>
+                <strong>MA-UY 2034</strong>
+                <span>Linear Algebra and Differential Equations</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/courses/ma_uy/" target="_blank" rel="noreferrer">
-                <h3>MA-UY 2114</h3>
-                <p>Calculus III: Multi-Dimensional Calculus</p>
+                <strong>MA-UY 2114</strong>
+                <span>Calculus III: Multi-Dimensional Calculus</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/courses/ma_uy/" target="_blank" rel="noreferrer">
-                <h3>MA-UY 2224</h3>
-                <p>Probability and Statistics for Engineers</p>
+                <strong>MA-UY 2224</strong>
+                <span>Probability and Statistics for Engineers</span>
               </a>
               <a class="course-chip" href="https://bulletins.nyu.edu/courses/ma_uy/" target="_blank" rel="noreferrer">
-                <h3>MA-UY 2314</h3>
-                <p>Discrete Mathematics</p>
+                <strong>MA-UY 2314</strong>
+                <span>Discrete Mathematics</span>
               </a>
             </div>
           </div>
         </section>
 
-        <section class="section section-tinted" id="contact">
+        <section class="section" id="contact">
           <div class="container">
-            <div class="contact-banner">
+            <div class="section-head reveal">
+              <span class="section-num">0x04</span>
+              <h2>Contact</h2>
+              <span class="head-wave" aria-hidden="true"></span>
+            </div>
+            <div class="contact-banner reveal">
               <div>
-                <p class="eyebrow">Contact</p>
                 <h2>Let’s connect</h2>
                 <p>
                   I’m based in New York, NY and always open to interesting conversations,
@@ -419,9 +532,28 @@
       </main>
 
       <footer class="site-footer">
-        <div class="container footer-wrap">
-          <p>&copy; <span id="current-year"></span> Bhrugu Setlur</p>
-          <a href="#top">Back to top</a>
+        <div class="container">
+          <div class="title-block">
+            <div>
+              <span class="tb-label">Title</span>
+              <span class="tb-value">Portfolio — Bhrugu Setlur</span>
+            </div>
+            <div>
+              <span class="tb-label">Drawn by</span>
+              <span class="tb-value">B. Setlur</span>
+            </div>
+            <div>
+              <span class="tb-label">Rev</span>
+              <span class="tb-value">&copy; <span id="current-year"></span></span>
+            </div>
+            <div>
+              <span class="tb-label">Sheet</span>
+              <span class="tb-value">1 of 1</span>
+            </div>
+            <div class="tb-top">
+              <a href="#top">Back to top</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
