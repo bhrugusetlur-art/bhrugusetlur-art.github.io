@@ -1,48 +1,145 @@
-document.documentElement.classList.add("js");
-
-const menuToggle = document.querySelector(".menu-toggle");
-const siteNav = document.querySelector(".site-nav");
-const yearNode = document.querySelector("#current-year");
+const stage = document.getElementById("stage");
+const scene = document.getElementById("die-scene");
+const blocks = document.querySelectorAll("button.block[data-section]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-if (yearNode) {
-  yearNode.textContent = String(new Date().getFullYear());
+const ZOOM_MS = 700;
+let openSection = null;
+let openTimer = null;
+let closeTimer = null;
+
+function panelFor(id) {
+  return document.getElementById(`panel-${id}`);
 }
 
-if (menuToggle && siteNav) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("is-open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      siteNav.classList.remove("is-open");
-      menuToggle.setAttribute("aria-expanded", "false");
-    });
-  });
+function blockFor(id) {
+  return document.querySelector(`button.block[data-section="${id}"]`);
 }
 
-const revealNodes = document.querySelectorAll(".reveal");
-if (!reduceMotion && "IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
+function applyZoom(id) {
+  const block = blockFor(id);
+  if (!block) return;
+  scene.style.transform = "";
+  const r = block.getBoundingClientRect();
+  const s = scene.getBoundingClientRect();
+  // Cap the scale: huge factors force re-rasterization of the die layer and jank.
+  const scale = Math.min(
+    Math.min(window.innerWidth / r.width, window.innerHeight / r.height) * 1.12,
+    2.6
   );
-  revealNodes.forEach((node) => observer.observe(node));
-} else {
-  revealNodes.forEach((node) => node.classList.add("in-view"));
+  const dx = window.innerWidth / 2 - (r.left + r.width / 2);
+  const dy = window.innerHeight / 2 - (r.top + r.height / 2);
+  scene.style.transformOrigin = `${r.left + r.width / 2 - s.left}px ${r.top + r.height / 2 - s.top}px`;
+  scene.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
 }
 
-// Binary counter on the portrait card's LED strip — a nod to the
-// register debug LEDs on the CPU project's Basys 3 board.
+function open(id, animate = true) {
+  const panel = panelFor(id);
+  if (!panel || openSection === id) return;
+  if (openSection) close(false);
+  clearTimeout(openTimer);
+  clearTimeout(closeTimer);
+
+  openSection = id;
+  applyZoom(id);
+  document.body.classList.add("zoomed");
+  stage.setAttribute("inert", "");
+
+  // Reveal the panel only after the zoom lands: laying out the panel (videos,
+  // iframes) mid-transform is what makes the animation stutter.
+  const reveal = () => {
+    panel.hidden = false;
+    void panel.offsetHeight;
+    panel.classList.add("open");
+    panel.scrollTop = 0;
+    panel.focus({ preventScroll: true });
+  };
+  if (animate && !reduceMotion) {
+    openTimer = setTimeout(reveal, ZOOM_MS - 60);
+  } else {
+    reveal();
+  }
+}
+
+function close(animate = true) {
+  if (!openSection) return;
+  const id = openSection;
+  const panel = panelFor(id);
+  openSection = null;
+  clearTimeout(openTimer);
+  clearTimeout(closeTimer);
+
+  panel.classList.remove("open");
+
+  // Fade the panel out first, then run the reverse zoom on a quiet main thread.
+  const finish = () => {
+    panel.hidden = true;
+    scene.style.transform = "";
+    document.body.classList.remove("zoomed");
+    stage.removeAttribute("inert");
+    const block = blockFor(id);
+    if (block) block.focus({ preventScroll: true });
+    // Stop leftover media only after the reverse zoom is done; tearing down
+    // iframes competes with the animation for the main thread.
+    setTimeout(() => {
+      if (openSection === id) return;
+      panel.querySelectorAll("video").forEach((v) => v.pause());
+      panel.querySelectorAll("iframe").forEach((f) => {
+        f.src = f.src;
+      });
+    }, ZOOM_MS);
+  };
+
+  if (animate && !reduceMotion) {
+    closeTimer = setTimeout(finish, 240);
+  } else {
+    finish();
+  }
+}
+
+blocks.forEach((block) => {
+  block.addEventListener("click", () => {
+    const id = block.dataset.section;
+    open(id);
+    history.pushState(null, "", `#${id}`);
+  });
+});
+
+document.querySelectorAll(".panel .back").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    close();
+    history.pushState(null, "", location.pathname + location.search);
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && openSection) {
+    close();
+    history.pushState(null, "", location.pathname + location.search);
+  }
+});
+
+window.addEventListener("popstate", () => {
+  const id = location.hash.slice(1);
+  if (id && panelFor(id)) {
+    open(id);
+  } else {
+    close();
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (openSection) applyZoom(openSection);
+});
+
+// Deep link: open the section instantly, no zoom animation.
+const initial = location.hash.slice(1);
+if (initial && panelFor(initial)) {
+  open(initial, false);
+}
+
+// Binary counter on the About panel's LED strip — a nod to the register debug
+// LEDs on the CPU project's Basys 3 board.
 const leds = document.querySelectorAll(".led");
 if (leds.length) {
   const show = (value) => {
