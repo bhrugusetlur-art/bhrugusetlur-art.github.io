@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bhrugu Setlur's portfolio — computer architecture, full-stack, and AI projects from an ECE student at NYU Tandon."
+      content="Bhrugu Setlur's portfolio — computer architecture, embedded, full-stack, and AI projects from an ECE student at NYU Tandon."
     />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Bhrugu Setlur's Portfolio" />
     <meta
       property="og:description"
-      content="Software, systems, and hardware projects by Bhrugu Setlur."
+      content="Silicon, systems, and software projects by Bhrugu Setlur."
     />
     <meta property="og:url" content="https://bhrugusetlur-art.github.io/" />
     <meta property="og:image" content="https://bhrugusetlur-art.github.io/portrait.jpg" />
-    <meta name="theme-color" content="#10151c" />
+    <meta name="theme-color" content="#060608" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Bhrugu Setlur's Portfolio" />
     <meta
       name="twitter:description"
-      content="Software, systems, and hardware projects by Bhrugu Setlur."
+      content="Silicon, systems, and software projects by Bhrugu Setlur."
     />
     <title>Bhrugu Setlur's Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -61,25 +61,14 @@
       <main id="top">
         <section class="hero" id="about">
           <div class="container hero-grid">
-            <div class="hero-card">
-              <div class="portrait-frame">
-                <img src="./portrait.jpg" alt="Portrait of Bhrugu Setlur" />
-              </div>
-              <div class="silkscreen mono-label" aria-hidden="true">
-                <span class="silkscreen-id"><span class="pin-dot"></span>BSETLUR-28 · REV A</span>
-                <span class="led-strip">
-                  <span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span>
-                </span>
-              </div>
-            </div>
             <div class="hero-copy">
-              <p class="kicker">Electrical &amp; Computer Engineering — NYU Tandon</p>
-              <h1>Bhrugu Setlur</h1>
+              <p class="kicker">ECE · NYU Tandon — Computer Architecture &amp; Chip Design</p>
+              <h1>Bhrugu<br />Setlur</h1>
               <p class="hero-text">
-                I am an Electrical and Computer Engineering student at NYU Tandon focused on
-                computer architecture and chip design, with experience shipping full-stack
-                products and AI agent infrastructure. Currently a software engineering intern at
-                Tokonoma.ai.
+                Electrical and Computer Engineering student building from the transistor up —
+                a custom CPU with virtual memory in Verilog, embedded firmware on ARM silicon,
+                and AI agent infrastructure. Currently a software engineering intern at
+                Tokonoma.ai and a firmware contractor at Generex.
               </p>
               <div class="hero-actions">
                 <a class="button button-primary" href="#projects">View Projects</a>
@@ -95,9 +84,57 @@
               </div>
               <p class="hero-meta" aria-label="Highlights">
                 <span>3.74 GPA · Dean’s List</span>
-                <span>10 Projects</span>
+                <span>Silicon · Systems · Software</span>
                 <span>New York, NY</span>
               </p>
+            </div>
+            <div class="hero-card">
+              <div class="chip">
+                <span class="chip-pins chip-pins-top" aria-hidden="true"></span>
+                <span class="chip-pins chip-pins-bottom" aria-hidden="true"></span>
+                <span class="chip-pins chip-pins-left" aria-hidden="true"></span>
+                <span class="chip-pins chip-pins-right" aria-hidden="true"></span>
+                <div class="chip-die">
+                  <img src="./portrait.jpg" alt="Portrait of Bhrugu Setlur" />
+                  <span class="chip-mark" aria-hidden="true">BS</span>
+                </div>
+              </div>
+              <div class="silkscreen mono-label" aria-hidden="true">
+                <span class="silkscreen-id"><span class="pin-dot"></span>BSETLUR · M1 · REV A</span>
+                <span class="led-strip">
+                  <span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="diemap reveal" role="img" aria-label="Die floorplan of focus areas: CPU and RTL, cache and virtual memory, AI agents, embedded firmware, full-stack, and security">
+              <span class="diemap-tag mono-label" aria-hidden="true">Die map — functional blocks</span>
+              <a class="block block-cpu" href="#projects">
+                <span class="block-k mono-label">Block 00</span>
+                <span class="block-t">CPU · RTL</span>
+              </a>
+              <a class="block block-ai" href="#experience">
+                <span class="block-k mono-label">Block 02</span>
+                <span class="block-t">AI Agents</span>
+              </a>
+              <a class="block block-vm" href="#projects">
+                <span class="block-k mono-label">Block 01</span>
+                <span class="block-t">Cache · Virtual Memory</span>
+              </a>
+              <a class="block block-emb" href="#experience">
+                <span class="block-k mono-label">Block 03</span>
+                <span class="block-t">Embedded · STM32</span>
+              </a>
+              <a class="block block-fs" href="#projects">
+                <span class="block-k mono-label">Block 04</span>
+                <span class="block-t">Full-Stack</span>
+              </a>
+              <a class="block block-sec" href="#experience">
+                <span class="block-k mono-label">Block 05</span>
+                <span class="block-t">Security</span>
+              </a>
             </div>
           </div>
         </section>
@@ -120,6 +157,20 @@
                     access to production logs, distributed traces, and Kubernetes events. Designed
                     the knowledge base’s vector-similarity deduplication and cut agent
                     incident-investigation time 53%.
+                  </p>
+                </div>
+              </li>
+              <li class="xp-row reveal">
+                <p class="xp-when">Jun 2026 — Present</p>
+                <div class="xp-body">
+                  <h3>Generex</h3>
+                  <p class="xp-role">Embedded Firmware Engineer (Contract) · San Francisco, CA</p>
+                  <p>
+                    Developing replacement firmware for an industrial battery-monitoring sensor —
+                    an STM32 (ARM Cortex-M0+) reading four laser time-of-flight sensors and
+                    reporting alarms over RS-485. Built the protocol and alarm logic as portable,
+                    hardware-independent C, with 354 automated checks passing before hardware
+                    bring-up.
                   </p>
                 </div>
               </li>
@@ -166,13 +217,15 @@
               </div>
               <div class="datasheet-grid">
                 <div class="datasheet-copy">
-                  <h3>8-bit CPU with Cache Hierarchy</h3>
+                  <h3>8-bit CPU with Virtual Memory &amp; Cache</h3>
                   <p>
                     A complete 8-bit Harvard-architecture CPU designed in Verilog — 12-instruction
                     ISA, ALU, register file, control unit, and a write-back L1 + 4-way
-                    set-associative L2 cache hierarchy — verified across 75 testbench cases,
-                    assembled with a custom C++ assembler, and running on a Basys 3 (Artix-7)
-                    FPGA. Virtual memory and physical tapeout are next.
+                    set-associative L2 cache hierarchy. Now extended with a full virtual memory
+                    system: a 4-entry TLB and cache-mediated MMU with hardware page-table walks and
+                    page-fault handling. All 13 modules are verified in simulation and running on a
+                    Basys 3 (Artix-7) FPGA, assembled with a custom C++ assembler. Physical tapeout
+                    is next.
                   </p>
                   <a
                     class="text-link"
@@ -193,16 +246,16 @@
                     <dd>12 instructions, custom</dd>
                   </div>
                   <div>
-                    <dt>Caches</dt>
-                    <dd>Write-back L1 + 4-way set-associative L2 (LRU)</dd>
+                    <dt>Memory</dt>
+                    <dd>Write-back L1 + 4-way L2 (LRU) · TLB/MMU virtual memory</dd>
                   </div>
                   <div>
                     <dt>Verification</dt>
-                    <dd>11 modules · 75 testbench cases passing</dd>
+                    <dd>13 modules · simulation + FPGA verified</dd>
                   </div>
                   <div>
                     <dt>Toolchain</dt>
-                    <dd>Custom C++ assembler · Icarus Verilog</dd>
+                    <dd>Custom C++ assembler · Icarus Verilog · Vivado</dd>
                   </div>
                   <div>
                     <dt>Target</dt>
@@ -210,7 +263,7 @@
                   </div>
                   <div>
                     <dt>Next</dt>
-                    <dd>Virtual memory (TLB/MMU), physical tapeout</dd>
+                    <dd>Physical tapeout</dd>
                   </div>
                 </dl>
               </div>
