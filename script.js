@@ -3,7 +3,7 @@ const scene = document.getElementById("die-scene");
 const blocks = document.querySelectorAll("button.block[data-section]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const ZOOM_MS = 700;
+const ZOOM_MS = 520;
 let openSection = null;
 let openTimer = null;
 let closeTimer = null;
@@ -55,7 +55,7 @@ function open(id, animate = true) {
     panel.focus({ preventScroll: true });
   };
   if (animate && !reduceMotion) {
-    openTimer = setTimeout(reveal, ZOOM_MS - 60);
+    openTimer = setTimeout(reveal, ZOOM_MS - 30);
   } else {
     reveal();
   }
@@ -91,7 +91,7 @@ function close(animate = true) {
   };
 
   if (animate && !reduceMotion) {
-    closeTimer = setTimeout(finish, 240);
+    closeTimer = setTimeout(finish, 200);
   } else {
     finish();
   }

@@ -11,8 +11,8 @@
   --gold: #d6b46e;
   --iri: linear-gradient(115deg, #56e7cf 0%, #5b95ff 34%, #a276ff 66%, #ff74d0 100%);
   --mono: "Space Mono", ui-monospace, monospace;
-  --zoom-ms: 700ms;
-  --zoom-ease: cubic-bezier(0.32, 0, 0.15, 1);
+  --zoom-ms: 520ms;
+  --zoom-ease: cubic-bezier(0.2, 0.55, 0.2, 1);
 }
 
 * {
@@ -134,7 +134,7 @@ img {
   padding-top: 0.25rem;
   transition:
     transform var(--zoom-ms) var(--zoom-ease),
-    opacity 300ms ease;
+    opacity 260ms ease;
   will-change: transform, opacity;
 }
 
@@ -144,7 +144,7 @@ body.zoomed .die-scene {
   opacity: 0;
   transition:
     transform var(--zoom-ms) var(--zoom-ease),
-    opacity 320ms ease 260ms;
+    opacity 280ms ease 170ms;
 }
 
 /* No hover repaints mid-animation */
@@ -316,31 +316,30 @@ button.block:hover::after {
   transform: translate(2px, -2px);
 }
 
+/* Breathing glow lives on an opacity-animated overlay: opacity runs on the
+   compositor, unlike box-shadow keyframes which repaint every frame. */
 @keyframes block-breathe {
-  0%, 100% {
-    box-shadow:
-      0 0 22px rgb(var(--c) / 0.24),
-      inset 0 0 34px rgb(var(--c) / 0.14);
-  }
-  50% {
-    box-shadow:
-      0 0 40px rgb(var(--c) / 0.44),
-      inset 0 0 34px rgb(var(--c) / 0.18);
-  }
+  50% { opacity: 1; }
 }
 
-button.block {
+button.block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 55%, rgb(var(--c) / 0.26), transparent 72%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
   animation: block-breathe 3.4s ease-in-out infinite;
 }
 
-.b-proj    { animation-delay: 0.7s; }
-.b-about   { animation-delay: 1.4s; }
-.b-school  { animation-delay: 2.1s; }
-.b-contact { animation-delay: 2.8s; }
+.b-proj::before    { animation-delay: 0.7s; }
+.b-about::before   { animation-delay: 1.4s; }
+.b-school::before  { animation-delay: 2.1s; }
+.b-contact::before { animation-delay: 2.8s; }
 
-button.block:hover,
-body.zoomed button.block {
-  animation: none;
+body.zoomed button.block::before {
+  animation-play-state: paused;
 }
 
 button.block .b-name {
@@ -451,12 +450,12 @@ button.block:hover {
     radial-gradient(circle at 12% -8%, rgba(91, 149, 255, 0.12), transparent 34%),
     linear-gradient(180deg, #08090c 0%, #060608 100%);
   opacity: 0;
-  transition: opacity 220ms ease;
+  transition: opacity 180ms ease;
 }
 
 .panel.open {
   opacity: 1;
-  transition: opacity 260ms ease;
+  transition: opacity 240ms ease;
 }
 
 .panel-body {
@@ -942,7 +941,7 @@ button.block:hover {
   }
 
   .hint::before,
-  button.block {
+  button.block::before {
     animation: none;
   }
 }
