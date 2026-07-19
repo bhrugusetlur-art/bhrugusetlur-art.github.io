@@ -202,17 +202,19 @@
               <p class="xp-role">Embedded Firmware Engineer (Contract) · San Francisco, CA</p>
               <p>
                 Developing replacement firmware for an industrial electrolyte-level sensor.
-                The STM32G071 target coordinates four VL53L4CX time-of-flight sensors,
-                applies debounced level and detachment logic, and acts as an ELS2-compatible
-                slave on Generex's opto-isolated four-wire BACS sensor network.
+                The product targets an STM32G071 coordinating four VL53L4CX time-of-flight
+                sensors, applying debounced level and detachment logic, and implementing
+                ELS2 module behavior for Generex's opto-isolated four-wire BACS sensor
+                network.
               </p>
               <p>
                 Built the protocol and decision stack as portable, hardware-independent C
                 with 7,737 passing host checks under strict warnings. Recovered and validated
                 BACS framing and CRC behavior against official tools and 125,323 captured
                 Reader/Simulator frames. The F401 devkit firmware now interoperates with the
-                official Generex Module Reader with zero CRC errors while non-blocking
-                diagnostics stream over SWD; custom-board integration and optical calibration
+                official Generex Module Reader with zero CRC errors. Separately, Reader-profile
+                request replay remained byte-correct while non-blocking diagnostics streamed
+                over SWD. G071 memory and electrical integration plus optical calibration
                 remain in progress.
               </p>
             </div>
@@ -300,10 +302,8 @@
               <div><dt>Virtual memory</dt><dd>4-entry TLB · hardware page walks · page faults</dd></div>
               <div><dt>Verification</dt><dd>15 Verilog suites + integration, assembler, and physical-deck checks</dd></div>
               <div><dt>FPGA</dt><dd>Basys3 wrapper + trace-driven debug demo; board run pending</dd></div>
-              <div><dt>ASIC</dt><dd>Sky130 HD · 12,778 cells · about 19% utilization</dd></div>
-              <div><dt>Timing</dt><dd>10 MHz target · 90.29 ns setup slack</dd></div>
-              <div><dt>Physical checks</dt><dd>Route DRC/antenna/KLayout clean · project LVS 146/146</dd></div>
-              <div><dt>Status</dt><dd>Via-complete core GDS; wrapper, memories, and foundry signoff pending</dd></div>
+              <div><dt>ASIC</dt><dd>Sky130 HD · 12,778 cells · 19% utilization · 90.29 ns setup slack at 10 MHz</dd></div>
+              <div><dt>Status</dt><dd>Via-complete core GDS · route DRC/antenna/KLayout clean · project LVS 146/146; fabrication work pending</dd></div>
             </dl>
           </div>
         </article>

@@ -39,4 +39,3 @@ Update only factual project and experience content in `index.html`:
   `Physical tapeout is next`, and `running on a Basys 3`.
 - Validate the HTML with an available local validator or parser.
 - Review the final diff to confirm that no styling or behavior files changed.
-

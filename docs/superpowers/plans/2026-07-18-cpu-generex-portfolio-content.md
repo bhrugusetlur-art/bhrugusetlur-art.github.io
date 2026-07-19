@@ -49,16 +49,16 @@ In the existing About paragraphs, state that the CPU was carried from RTL to a v
 Keep the existing heading, role, dates, and HTML structure. The two paragraphs must convey:
 
 ```text
-Developing replacement firmware for an industrial electrolyte-level sensor. The STM32G071 target coordinates four VL53L4CX time-of-flight sensors, applies debounced level and detachment logic, and acts as an ELS2-compatible slave on Generex's opto-isolated four-wire BACS sensor network.
+Developing replacement firmware for an industrial electrolyte-level sensor. The product targets an STM32G071 coordinating four VL53L4CX time-of-flight sensors, applying debounced level and detachment logic, and implementing ELS2 module behavior for Generex's opto-isolated four-wire BACS sensor network.
 
-Built the protocol and decision stack as portable, hardware-independent C with 7,737 passing host checks under strict warnings. Recovered and validated BACS framing and CRC behavior against official tools and 125,323 captured Reader/Simulator frames. The F401 devkit firmware now interoperates with the official Generex Module Reader with zero CRC errors while non-blocking diagnostics stream over SWD; custom-board integration and optical calibration remain in progress.
+Built the protocol and decision stack as portable, hardware-independent C with 7,737 passing host checks under strict warnings. Recovered and validated BACS framing and CRC behavior against official tools and 125,323 captured Reader/Simulator frames. The F401 devkit firmware now interoperates with the official Generex Module Reader with zero CRC errors. Separately, Reader-profile request replay remained byte-correct while non-blocking diagnostics streamed over SWD. G071 memory and electrical integration plus optical calibration remain in progress.
 ```
 
 - [x] **Step 4: Replace the CPU project copy and specifications**
 
 Keep the existing datasheet article and repository link. Rename it `8-bit CPU: RTL to GDS`, update the tag to `Verilog · FPGA · Sky130`, and summarize the 12-instruction Harvard CPU, write-back L1/L2 hierarchy, TLB/MMU, test/assembler/FPGA work, and routed Sky130 result. Explicitly state that this is a verified core block rather than a fabricated chip.
 
-Replace the stale specification rows with these facts:
+Replace the seven stale specification rows with these facts, keeping seven row wrappers:
 
 ```text
 Architecture — 8-bit Harvard · 12-instruction ISA
@@ -66,10 +66,8 @@ Memory — Write-back L1 + 4-way L2 (LRU)
 Virtual memory — 4-entry TLB · hardware page walks · page faults
 Verification — 15 Verilog suites + integration, assembler, and physical-deck checks
 FPGA — Basys3 wrapper + trace-driven debug demo; board run pending
-ASIC — Sky130 HD · 12,778 cells · about 19% utilization
-Timing — 10 MHz target · 90.29 ns setup slack
-Physical checks — Route DRC/antenna/KLayout clean · project LVS 146/146
-Status — Via-complete core GDS; wrapper, memories, and foundry signoff pending
+ASIC — Sky130 HD · 12,778 cells · 19% utilization · 90.29 ns setup slack at 10 MHz
+Status — Via-complete core GDS · route DRC/antenna/KLayout clean · project LVS 146/146; fabrication work pending
 ```
 
 - [x] **Step 5: Verify stale claims are gone and new evidence is present**
