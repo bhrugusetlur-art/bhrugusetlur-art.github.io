@@ -134,14 +134,15 @@
               never been satisfied knowing that something works without knowing why. That
               itch pulled me from writing programs to questioning what actually runs them,
               so I built my own answer: an 8-bit CPU in Verilog with a cache hierarchy and
-              virtual memory, running on real hardware.
+              virtual memory, then carried it from RTL through a verified Sky130 core
+              layout.
             </p>
             <p>
-              The pattern repeats everywhere I work. At Generex I write firmware that has
-              to be trusted before the board is ever powered on. At Tokonoma I build
-              infrastructure that lets AI agents investigate production incidents. Each
-              layer I learn makes the one below it more interesting, and the bottom of
-              that stack is chip design. That's where I'm headed.
+              The pattern repeats everywhere I work. At Generex I build protocol and sensor
+              firmware that is tested off-device before it is proven against real hardware.
+              At Tokonoma I build infrastructure that lets AI agents investigate production
+              incidents. Each layer I learn makes the one below it more interesting, and the
+              bottom of that stack is chip design. That's where I'm headed.
             </p>
           </div>
         </div>
@@ -152,11 +153,11 @@
           </div>
           <div>
             <h2 class="mono">Hardware</h2>
-            <p>Verilog, FPGA (Basys 3), STM32, ARM Cortex-M0+, Arduino, RS-485, time-of-flight sensors, circuit design, soldering</p>
+            <p>Verilog, FPGA (Basys 3), STM32, ARM Cortex-M0+/M4, BACS sensor networks, time-of-flight sensors, ASIC physical design, circuit design, soldering</p>
           </div>
           <div>
             <h2 class="mono">Frameworks &amp; Tools</h2>
-            <p>React, Next.js, Node.js, Supabase, PostgreSQL, Docker, Kubernetes, MCP, OpenTelemetry, Google Cloud, Vivado, Icarus Verilog</p>
+            <p>React, Next.js, Node.js, Supabase, PostgreSQL, Docker, Kubernetes, MCP, OpenTelemetry, Google Cloud, Vivado, Icarus Verilog, OpenROAD, KLayout</p>
           </div>
         </div>
       </div>
@@ -200,17 +201,19 @@
               <h2>Generex</h2>
               <p class="xp-role">Embedded Firmware Engineer (Contract) · San Francisco, CA</p>
               <p>
-                Writing replacement firmware for an industrial battery-monitoring sensor:
-                an STM32 (ARM Cortex-M0+) reads four laser time-of-flight sensors to
-                detect low electrolyte levels in battery cells and reports alarms over
-                RS-485.
+                Developing replacement firmware for an industrial electrolyte-level sensor.
+                The STM32G071 target coordinates four VL53L4CX time-of-flight sensors,
+                applies debounced level and detachment logic, and acts as an ELS2-compatible
+                slave on Generex's opto-isolated four-wire BACS sensor network.
               </p>
               <p>
-                The protocol and alarm logic are portable, hardware-independent C that
-                runs entirely off-device in tests: 354 automated checks pass before the
-                board is ever powered on. The alarm path resists false positives with
-                hysteresis debouncing and a time-based confidence model that separates a
-                genuinely low cell from condensation, bubbles, or a detached sensor.
+                Built the protocol and decision stack as portable, hardware-independent C
+                with 7,737 passing host checks under strict warnings. Recovered and validated
+                BACS framing and CRC behavior against official tools and 125,323 captured
+                Reader/Simulator frames. The F401 devkit firmware now interoperates with the
+                official Generex Module Reader with zero CRC errors while non-blocking
+                diagnostics stream over SWD; custom-board integration and optical calibration
+                remain in progress.
               </p>
             </div>
           </li>
@@ -267,19 +270,20 @@
         <article class="datasheet">
           <div class="datasheet-head mono">
             <span>Project datasheet — digital design</span>
-            <span>Verilog · FPGA</span>
+            <span>Verilog · FPGA · Sky130</span>
           </div>
           <div class="datasheet-grid">
             <div class="datasheet-copy">
-              <h2>8-bit CPU with Virtual Memory &amp; Cache</h2>
+              <h2>8-bit CPU: RTL to GDS</h2>
               <p>
-                A complete 8-bit Harvard-architecture CPU designed in Verilog: a
-                12-instruction ISA, ALU, register file, control unit, and a write-back L1
-                plus 4-way set-associative L2 cache. Extended with full virtual memory
-                through a 4-entry TLB and a cache-mediated MMU with hardware page-table
-                walks and page-fault handling. All 13 modules are verified in simulation
-                and running on a Basys 3 (Artix-7) FPGA, assembled with a custom C++
-                assembler. Physical tapeout is next.
+                I designed a complete 8-bit Harvard-architecture CPU in Verilog with a
+                12-instruction ISA, write-back L1 and 4-way set-associative L2 caches, and
+                virtual memory through a 4-entry TLB and cache-mediated MMU. The RTL,
+                assembler, integration programs, and Basys3 wrapper are covered by the
+                project's regression flow. I then hardened the core through OpenROAD into
+                a via-complete Sky130 HD GDS with clean timing, route checks, standalone
+                KLayout DRC, and project-deck electrical LVS. It is a verified core block,
+                not a fabricated or foundry-signed-off chip.
               </p>
               <a
                 class="text-link"
@@ -291,13 +295,15 @@
               </a>
             </div>
             <dl class="spec-table">
-              <div><dt>Architecture</dt><dd>8-bit Harvard</dd></div>
-              <div><dt>ISA</dt><dd>12 instructions, custom</dd></div>
-              <div><dt>Memory</dt><dd>Write-back L1 + 4-way L2 (LRU) · TLB/MMU virtual memory</dd></div>
-              <div><dt>Verification</dt><dd>13 modules · simulation + FPGA verified</dd></div>
-              <div><dt>Toolchain</dt><dd>Custom C++ assembler · Icarus Verilog · Vivado</dd></div>
-              <div><dt>Target</dt><dd>Basys 3 — Xilinx Artix-7</dd></div>
-              <div><dt>Next</dt><dd>Physical tapeout</dd></div>
+              <div><dt>Architecture</dt><dd>8-bit Harvard · 12-instruction ISA</dd></div>
+              <div><dt>Memory</dt><dd>Write-back L1 + 4-way L2 (LRU)</dd></div>
+              <div><dt>Virtual memory</dt><dd>4-entry TLB · hardware page walks · page faults</dd></div>
+              <div><dt>Verification</dt><dd>15 Verilog suites + integration, assembler, and physical-deck checks</dd></div>
+              <div><dt>FPGA</dt><dd>Basys3 wrapper + trace-driven debug demo; board run pending</dd></div>
+              <div><dt>ASIC</dt><dd>Sky130 HD · 12,778 cells · about 19% utilization</dd></div>
+              <div><dt>Timing</dt><dd>10 MHz target · 90.29 ns setup slack</dd></div>
+              <div><dt>Physical checks</dt><dd>Route DRC/antenna/KLayout clean · project LVS 146/146</dd></div>
+              <div><dt>Status</dt><dd>Via-complete core GDS; wrapper, memories, and foundry signoff pending</dd></div>
             </dl>
           </div>
         </article>
